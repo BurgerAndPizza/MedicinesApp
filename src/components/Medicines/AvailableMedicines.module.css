@@ -1,0 +1,78 @@
+
+.medicines {
+    max-width: 70rem;
+    width: 100%;
+    margin: 2rem auto;
+    animation: medicines-appear 1s ease-out forwards;
+    background-color: #aec6d1;
+    border-radius: 1.5rem;
+  
+  }
+  
+  .medicines ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @keyframes medicines-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 90%;
+}
+
+.details h3 {
+    margin: 1rem;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    flex: 1;
+}
+
+.details p {
+    margin: 0.5rem;
+    font-size: 1rem;
+    color: #232828;
+    flex: 1;
+}
+
+.details .price {
+    font-weight: bold;
+    color: #010006;
+    font-size: 1rem;
+    flex: 0.5;
+    text-align: right;
+    margin: 0.7rem;
+}
+.details .cartBtn {
+  width: auto;
+  height: fit-content;
+  background-color: rgb(51, 163, 224);
+  border-radius: 10px;
+  border-color: rgb(51, 163, 224);
+  font-size: medium;
+  color: rgb(28, 28, 29) ;
+  margin-left: 30px;
+  
+}
+.details .qty{
+  width: 35px;
+  border-radius: 5px;
+  border-color: #aec6d1;
+
+}
+.cartBtn:hover,
+.cartBtn:active {
+  background-color: #29b8fb;
+}
