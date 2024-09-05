@@ -1,0 +1,21 @@
+.AddBtn {
+    width: 60%;
+    height: 2rem;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #2d65be;
+    border-color:#2f76c2 ;
+    color: #070108;
+    display: flex;
+    flex-direction: row;
+  }
+  .AddBtn:hover{
+    background-color: #1e4ff0;
+    color: aliceblue;
+  }
+  form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+  }
+  

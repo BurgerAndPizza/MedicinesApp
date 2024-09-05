@@ -1,0 +1,42 @@
+  .details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 0rem;
+    width: 70%;
+    padding: 1rem;
+  
+  }
+  
+  .details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    flex: 2;
+    list-style: none;
+  }
+  
+  .details p {
+    margin-top: 0;
+    font-size: 1rem;
+    color: #232828;
+    flex: 3;
+  }
+  
+  .details .price {
+    font-weight: bold;
+    color: #010006;
+    font-size: 1rem;
+    flex: 1;
+    text-align: right;
+  }
+ 
+  
+ 
+  
+  
+  
+  
+ 
+  

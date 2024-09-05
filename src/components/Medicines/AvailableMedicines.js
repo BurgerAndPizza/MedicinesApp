@@ -1,6 +1,9 @@
+import { useState } from "react";
 import classes from "./AvailableMedicines.module.css";
+import Card from "../UI/Card";
+import MedicineItem from "./MedicineItem";
 
-const DUMMY_MEDICINE = [
+const DUMMY_MEDICINES = [
   {
     id: 'm1',
     name: 'Paracetamol',
@@ -23,31 +26,61 @@ const DUMMY_MEDICINE = [
     id: 'm4',
     name: 'Evion',
     description: 'Boosts collagen',
-    price: 100,
+    price: 18,
   },
 ];
 
 const AvailableMedicines = () => {
-  
-  const medicineList = DUMMY_MEDICINE.map((medicine) => (
-    <li key={medicine.id} className={classes['medicine-item']}>
-      <div className={classes.details}>
-        <h3>{medicine.name}</h3>
-        <p className={classes.description}>{medicine.description}</p>
-        <span className={classes.price}>Rs.{medicine.price.toFixed(2)}</span>
-        <button type="submit" className={classes.cartBtn}>Add to cart</button>
-        <label>Quantity</label>
-        <input type="number" className={classes.qty}/>
-       
-      </div> 
-      
-    </li>
+  const [medicines, setMedicines] = useState(DUMMY_MEDICINES);
+  const [medicineName, setMedicineName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    if (medicineName.trim().length === 0 || description.trim().length === 0 || price.trim().length === 0) {
+      return;
+    }
+
+    setMedicines((prevMedicines) => [
+      ...prevMedicines,
+      { id: `m${prevMedicines.length + 1}`, name: medicineName, description: description, price: +price },
+    ]);
+
+    setMedicineName('');
+    setDescription('');
+    setPrice('');
+  };
+
+  const medicineList = medicines.map((medicine) => ( // Use `medicines` state here
+    <MedicineItem
+      key={medicine.id}
+      id={medicine.id}
+      name={medicine.name}
+      description={medicine.description}
+      price={medicine.price}
+    />
   ));
-  
 
   return (
     <section className={classes.medicines}>
-      <ul>{medicineList}</ul>
+      <form onSubmit={submitHandler}>
+        <div className={classes.label}>
+          <label className={classes.name}>Name</label>
+          <label className={classes.description}>Description</label>
+          <label className={classes.price}>Price</label>
+        </div>
+        <div className={classes.inputs}>
+          <input type="text" value={medicineName} onChange={(event) => setMedicineName(event.target.value)} />
+          <input type="text" value={description} onChange={(event) => setDescription(event.target.value)} />
+          <input type="number" value={price} onChange={(event) => setPrice(event.target.value)} />
+          <button type="submit">Add</button>
+        </div>
+      </form>
+      <Card>
+        <ul className={classes.list}>{medicineList}</ul>
+      </Card>
     </section>
   );
 };
